@@ -4,6 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic|Open+Sans+Condensed:300|Merriweather:400,300,300italic,400italic|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/bigfoot.min.css">
+
     {{#is "home"}}
       <title>{{meta_title}} - {{meta_description}}</title>
     {{else}}
@@ -18,21 +25,15 @@
 
     {{> favicon-appletouchicon}}
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
-
-    {{> theme-green}}
+    {{!> theme-green}}
     {{!> theme-blue}}
     {{!> theme-red}}
     {{!> theme-orange}}
-    {{!> theme-customcolor}}
+    {{> theme-customcolor}}
 
-    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
-    <link rel="stylesheet" href="{{asset "css/github.css"}}">
+    {{> meta}}
 
     {{#if pagination.next}}<link href="{{page_url pagination.next}}" rel="prefetch">{{/if}}
-
-    {{!> google-analytics}}
 
     {{ghost_head}}
 </head>
@@ -51,27 +52,30 @@
         <div class="inner">
             {{> footer-social}}
             {{> footer-author}}
-            <section class="copyright">&copy; {{date format="YYYY"}} <a href="/">{{@blog.title}}</a>. All rights reserved</section>
-            <section><a href="https://github.com/epistrephein/Steam">Steam theme</a> for <a class="icon-ghost" href="http://ghost.org/"><span class="hidden">Ghost</span></a> by Tommaso Barbato</section>
+            <section class="copyright">&copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a>. All rights reserved</section>
         </div>
     </footer>
 
     {{ghost_foot}}
 
-    <script src="{{asset "js/index.js"}}"></script>
-    <script src="{{asset "js//bind-polyfill.min.js"}}"></script>
-    <script src="{{asset "js/smooth-scroll.min.js"}}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    <script src="/assets/js/bigfoot.min.js"></script>
     <script>
-        smoothScroll.init({
-            speed: 800,
-            easing: 'easeInOutCubic',
-            updateURL: false,
-            offset: 125,
+        var bigfoot = $.bigfoot({
+            actionOriginalFN: "ignore",
+            numberResetSelector: "article",
+            activateOnHover: false,
+            positionContent: true
         });
     </script>
+
     <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        $('<hr>').insertBefore('div.footnotes');
+        $('a[href*="fnref:"]').remove();
+    </script>
+    {{> google-analytics}}
 
 </body>
 </html>

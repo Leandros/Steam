@@ -2,9 +2,12 @@
 
 <main class="content" role="main">
     <article class="{{post_class}}">
-        <h1 class="posts-tagged"><i class="fa fa-fw fa-tag"></i> {{tag.name}}</h1>
-
+    {{#post}}
+        <header>
+            <h1 class="post-title">{{{title}}}</h1>
+        </header>
         <section class="post-content">
+        {{#get "posts" limit="all"}}
             <ul>
             {{#foreach posts}}
                 <li>
@@ -14,6 +17,8 @@
                 </li>
             {{/foreach}}
             </ul>
+        {{/get}}
         </section>
+    {{/post}}
     </article>
 </main>
