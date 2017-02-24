@@ -31,17 +31,17 @@
     {{!> theme-orange}}
     {{> theme-customcolor}}
 
-    {{> meta}}
-
     {{#if pagination.next}}<link href="{{page_url pagination.next}}" rel="prefetch">{{/if}}
 
+    {{! My own meta tags take precedence, sorry! }}
     {{ghost_head}}
+    {{> meta}}
 </head>
 <body class="{{body_class}}">
 
     <header id="site-head">
         <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
-        <h1 class="blog-subtitle">{{@blog.description}}</h1>
+        <h1 class="blog-subtitle">Thoughts on programming and more</h1>
     </header>
 
     {{navigation}}
