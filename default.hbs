@@ -8,15 +8,14 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic|Open+Sans+Condensed:300|Merriweather:400,300,300italic,400italic|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/bigfoot.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset css/styles.min.css}}">
+    <link rel="stylesheet" type="text/css" href="{{asset css/bigfoot.min.css}}">
 
     {{#is "home"}}
       <title>{{meta_title}} - {{meta_description}}</title>
     {{else}}
       <title>{{meta_title}}</title>
     {{/is}}
-    <meta name="description" content="{{meta_description}}">
     <meta name="apple-mobile-web-app-title" content="{{meta_title}}">
 
     <meta name="HandheldFriendly" content="True">
@@ -33,7 +32,6 @@
 
     {{#if pagination.next}}<link href="{{page_url pagination.next}}" rel="prefetch">{{/if}}
 
-    {{! My own meta tags take precedence, sorry! }}
     {{ghost_head}}
     {{> meta}}
 </head>
@@ -60,7 +58,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-    <script src="/assets/js/bigfoot.min.js"></script>
+    <script src="{{asset js/bigfoot.min.js}}"></script>
     <script>
         var bigfoot = $.bigfoot({
             actionOriginalFN: "ignore",

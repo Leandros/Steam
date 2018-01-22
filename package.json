@@ -1,7 +1,12 @@
 {
-  "name": "Steam",
-  "version": "1.4",
-  "description": "A clean and minimal theme for Ghost.",
-  "author": "Tommaso Barbato",
-  "homepage": "https://github.com/epistrephein/Steam"
+    "name": "steam",
+    "version": "1.5.0",
+    "description": "A clean and minimal theme for Ghost.",
+    "author" : {
+        "name": "Arvid Gerstmann",
+        "email": "ag@arvid.io"
+    },
+    "config": {
+        "posts_per_page": 5
+    }
 }
