@@ -2,6 +2,7 @@
     "name": "steam",
     "version": "1.5.0",
     "description": "A clean and minimal theme for Ghost.",
+    "keywords": ["ghost-theme"],
     "author" : {
         "name": "Arvid Gerstmann",
         "email": "ag@arvid.io"
